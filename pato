@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Pato ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .contenedor {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 35px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #c2185b;
+        }
+        p {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        .corazon {
+            font-size: 60px;
+            animation: latido 1.2s infinite;
+        }
+        @keyframes latido {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .carta {
+            background: #fff7fb;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border: 2px solid #ffc1d9;
+        }
+        button {
+            border: none;
+            background: #e91e63;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            transform: scale(1.08);
+            background: #c2185b;
+        }
+        #sorpresa {
+            display: none;
+            margin-top: 25px;
+            color: #e91e63;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .foto {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 15px auto;
+            display: block;
+            border: 4px solid #ffc1d9;
+        }
+        .flotante {
+            position: fixed;
+            bottom: -50px;
+            font-size: 25px;
+            animation: subir 7s linear infinite;
+            opacity: 0.8;
+        }
+        @keyframes subir {
+            from {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+            to {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="corazon">❤️</div>
+        <h1>Para Pato</h1>
+        <h2>Una pequeña sorpresa para ti 💕</h2>
+        <div class="carta">
+            <p>
+                Pato, quiero que sepas que eres una persona muy especial
+                para mí. Gracias por cada momento, cada sonrisa y cada
+                recuerdo que hemos compartido.
+            </p>
+            <p>
+                Tal vez no siempre encuentre las palabras perfectas para
+                decirte todo lo que siento, pero quiero que nunca olvides
+                lo mucho que te quiero y lo importante que eres para mí. ❤️
+            </p>
+            <p>
+                Espero que podamos seguir creando muchos momentos bonitos
+                juntos y que siempre podamos recordar todo lo que hemos
+                vivido.
+            </p>
+            <p>
+                <strong>Te quiero muchísimo, Pato. ❤️</strong>
+            </p>
+        </div>
+        <h2>📅 Nuestra fecha especial</h2>
+        <p>
+            Aquí podemos poner nuestra fecha especial.
+        </p>
+        <!--
+        PARA AGREGAR UNA FOTO:
+        Cambia "foto.jpg" por el nombre de tu fotografía.
+        -->
+        <img src="foto.jpg" alt="Nuestra foto ❤️" class="foto">
+        <button onclick="mostrarSorpresa()">
+            💖 Tengo una sorpresa para ti
+        </button>
+        <div id="sorpresa">
+            Te amo muchísimo, Pato. ❤️🥹
+            <br><br>
+            Gracias por estar en mi vida.
+        </div>
+    </div>
+    <script>
+        function mostrarSorpresa() {
+            document.getElementById("sorpresa").style.display = "block";
+            crearCorazones();
+        }
+        function crearCorazones() {
+            for (let i = 0; i < 20; i++) {
+                const corazon = document.createElement("div");
+                corazon.classList.add("flotante");
+                corazon.innerHTML = "❤️";
+                corazon.style.left = Math.random() * 100 + "vw";
+                corazon.style.animationDuration =
+                    (Math.random() * 4 + 4) + "s";
+                document.body.appendChild(corazon);
+                setTimeout(() => {
+                    corazon.remove();
+                }, 8000);
+            }
+        }
+    </script>
+</body>
+</html>
